@@ -6,6 +6,15 @@ html {
     height: 100%;
     font-family: 'Roboto', sans-serif;
     background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper to contain content and push footer to the bottom */
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation Bar */
@@ -32,6 +41,8 @@ nav a:hover {
 .container {
     display: flex;
     height: 85vh;
+    flex: 1;
+    /* Make sure it fills available space */
 }
 
 /* Map container will take 60% of the width */
@@ -51,7 +62,6 @@ nav a:hover {
     justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
-    /* Scroll if content overflows */
 }
 
 /* Center the headings and make them bold */
@@ -106,6 +116,9 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    margin-top: auto;
+    /* Ensure footer is at the bottom */
+    width: 100%;
 }
 
 /* Ensure flexbox does not break */
@@ -118,35 +131,41 @@ footer {
     margin-top: 20px;
 }
 
+/* Styling for the quiz section */
+.quiz-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Heading for the quiz section */
+.quiz-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Styling for the quiz button */
 .quiz-button {
     background-color: #007BFF;
-    /* Bootstrap primary color */
     color: white;
-    /* Text color */
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
     border: none;
-    /* No border */
     border-radius: 5px;
-    /* Rounded corners */
-    padding: 10px 20px;
-    /* Padding around the text */
-    font-size: 16px;
-    /* Font size */
     cursor: pointer;
-    /* Pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.2s;
-    /* Animation for hover */
-    margin-top: 10px;
-    /* Space above the button */
+    transition: background-color 0.3s ease;
 }
 
 .quiz-button:hover {
     background-color: #0056b3;
-    /* Darker shade on hover */
-    transform: translateY(-2px);
-    /* Lift effect on hover */
 }
 
 .quiz-button:active {
-    transform: translateY(0);
-    /* Reset on click */
+    background-color: #003f7f;
 }
