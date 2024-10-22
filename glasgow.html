@@ -7,62 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Carousel styles */
-        .carousel {
-            position: relative;
-            max-width: 600px; /* Set to your preferred width */
-            margin: 20px auto; /* Center the carousel */
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-item {
-            min-width: 100%; /* Take full width */
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .carousel-image {
-            width: 100%;
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 50%;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
-    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -81,37 +25,11 @@
                     <li>Necropolis: A famous Victorian cemetery with beautiful views over Glasgow.</li>
                     <li>Kelvingrove Art Gallery: One of the most visited museums in the UK.</li>
                 </ul>
-            </div>
-            <!-- Image Carousel -->
-            <div class="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="edinburgh.jpg" alt="Edinburgh" class="carousel-image">
-                        <div class="carousel-caption">
-                            <h3>Edinburgh</h3>
-                            <p>Explore the capital's rich history.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="glasgow.jpg" alt="Glasgow" class="carousel-image">
-                        <div class="carousel-caption">
-                            <h3>Glasgow</h3>
-                            <p>Dive into the cultural heart of Scotland.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="aberdeen.jpg" alt="Aberdeen" class="carousel-image">
-                        <div class="carousel-caption">
-                            <h3>Aberdeen</h3>
-                            <p>Known as the Granite City.</p>
-                        </div>
-                    </div>
-                    <!-- Add more carousel items as needed -->
+                <div class="quiz-section">
+                    <h3>Test Your Knowledge</h3>
+                    <button class="quiz-button">Take a Quiz</button>
                 </div>
-                <button class="carousel-control prev" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="carousel-control next" onclick="changeSlide(1)">&#10095;</button>
             </div>
-            <!-- End of Image Carousel -->
         </div>
     </div>
     <footer>
@@ -119,25 +37,5 @@
     </footer>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="glasgow_script.js"></script>
-    <script>
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            const slides = document.querySelectorAll('.carousel-item');
-            if (index >= slides.length) currentIndex = 0;
-            if (index < 0) currentIndex = slides.length - 1;
-            slides.forEach((slide, i) => {
-                slide.style.display = (i === currentIndex) ? 'block' : 'none';
-            });
-        }
-
-        function changeSlide(direction) {
-            currentIndex += direction;
-            showSlide(currentIndex);
-        }
-
-        // Initialize the carousel
-        showSlide(currentIndex);
-    </script>
 </body>
 </html>

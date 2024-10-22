@@ -42,6 +42,38 @@ glasgowMarker.on('click', function () {
 });
 
 
+let currentIndex = 0;
+
+function changeSlide(direction) {
+    const images = document.querySelectorAll('#carouselImages img');
+    const totalImages = images.length;
+
+    // Hide the current image
+    images[currentIndex].style.display = 'none';
+
+    // Update the index
+    currentIndex = (currentIndex + direction + totalImages) % totalImages;
+
+    // Show the new image
+    images[currentIndex].style.display = 'block';
+}
+
+// Initialize the carousel by showing the first image
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('#carouselImages img');
+    images.forEach((img, index) => {
+        img.style.display = index === 0 ? 'block' : 'none'; // Show only the first image
+    });
+
+    // Map initialization
+    const map = L.map('map').setView([55.860916, -4.251433], 13); // Glasgow coordinates
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+});
+
 let currentGlasgowIndex = 0;
 let currentEdinburghIndex = 0;
 

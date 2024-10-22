@@ -311,24 +311,6 @@ footer {
     text-decoration: underline;
 }
 
-/* Global page styles */
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Keep the overall page layout intact */
-.wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
 
 /* Navigation Bar */
 nav {
@@ -437,6 +419,12 @@ nav a {
     min-width: 100%;
     transition: transform 0.5s ease;
 }
+
+.carousel-images a {
+    display: block;
+    width: 100%;
+}
+
 
 .carousel-button {
     position: absolute;
