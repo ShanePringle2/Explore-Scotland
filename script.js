@@ -40,3 +40,44 @@ glasgowMarker.on('click', function () {
         window.location.href = 'glasgow.html'; // Redirect to Glasgow page after zooming
     }, 1000); // 1 second delay
 });
+
+
+let currentGlasgowIndex = 0;
+let currentEdinburghIndex = 0;
+
+function changeSlide(city, direction) {
+    const images = document.querySelectorAll(`#${city}CarouselImages img`);
+    const totalImages = images.length;
+
+    if (city === 'glasgow') {
+        images[currentGlasgowIndex].style.display = 'none';
+        currentGlasgowIndex = (currentGlasgowIndex + direction + totalImages) % totalImages;
+        images[currentGlasgowIndex].style.display = 'block';
+    } else if (city === 'edinburgh') {
+        images[currentEdinburghIndex].style.display = 'none';
+        currentEdinburghIndex = (currentEdinburghIndex + direction + totalImages) % totalImages;
+        images[currentEdinburghIndex].style.display = 'block';
+    }
+}
+
+// Initialize the carousels by showing the first image
+document.addEventListener('DOMContentLoaded', () => {
+    const glasgowImages = document.querySelectorAll('#glasgowCarouselImages img');
+    glasgowImages.forEach((img, index) => {
+        img.style.display = index === 0 ? 'block' : 'none'; // Show only the first image
+    });
+
+    const edinburghImages = document.querySelectorAll('#edinburghCarouselImages img');
+    edinburghImages.forEach((img, index) => {
+        img.style.display = index === 0 ? 'block' : 'none'; // Show only the first image
+    });
+
+    // Initialize the map
+    const map = L.map('map').setView([55.860916, -4.251433], 13); // Glasgow coordinates
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+});
+
+
